@@ -94,6 +94,17 @@ class _MovieDetailsState extends State<MovieDetails> {
                           spreadRadius: 2)
                     ]),
               ),
+              /*   Container(
+                margin: EdgeInsets.only(
+                  top: height * 0.4,
+                  left: width * 0.7,
+                ),
+                child: Icon(
+                  Icons.star,
+                  color: Colors.yellow,
+                  size: width * 0.2,
+                ),
+              ), */
               Container(
                   margin:
                       EdgeInsets.only(top: height * 0.425, left: width * 0.1),
@@ -107,6 +118,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                               fontSize: 24, fontWeight: FontWeight.bold),
+                          // textAlign: TextAlign.center,
                         ),
                       ),
                       Container(
@@ -118,6 +130,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                             fontSize: 12,
                             color: Colors.grey,
                           ),
+                          //  textAlign: TextAlign.center,
                         ),
                       ),
                       Container(
@@ -126,10 +139,12 @@ class _MovieDetailsState extends State<MovieDetails> {
                         child: Text(
                           movieProvider.simplyfiedGenres(
                               genres: widget.movie.genres),
+                          overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             fontSize: 12,
                             color: Colors.grey,
                           ),
+                          // textAlign: TextAlign.center,
                         ),
                       ),
                       widget.movie.mainStar != ""
@@ -163,6 +178,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                                         fontSize: 15,
                                         color: Colors.black,
                                       ),
+                                      //  textAlign: TextAlign.center,
                                     ),
                                   ),
                                 ],
@@ -200,6 +216,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                                         fontSize: 15,
                                         color: Colors.black,
                                       ),
+                                      //  textAlign: TextAlign.center,
                                     ),
                                   ),
                                 ],
@@ -217,6 +234,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black,
                                     height: 1.2),
+                                // textAlign: TextAlign.center,
                               ),
                             )
                           : SizedBox(),
@@ -230,6 +248,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                               letterSpacing: 1.1,
                               color: Colors.black,
                               height: 1.2),
+                          // textAlign: TextAlign.center,
                         ),
                       ),
                     ],

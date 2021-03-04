@@ -84,6 +84,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         ? movieProvider.getisListLoading() == false
                             ? AnimationLimiter(
                                 child: ListView.builder(
+                                  //  shrinkWrap: true,
+                                  //   physics: NeverScrollableScrollPhysics(),
                                   itemCount: _movieList.length,
                                   itemBuilder: (context, index) {
                                     return AnimationConfiguration.staggeredList(
@@ -154,6 +156,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                                             image:
                                                                 imageProvider,
                                                             fit: BoxFit.cover,
+                                                            /* colorFilter:
+                                                                ColorFilter.mode(
+                                                                    Colors.red,
+                                                                    BlendMode
+                                                                        .colorBurn) */
                                                           ),
                                                         ),
                                                       ),
@@ -194,6 +201,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                               fontWeight:
                                                                   FontWeight
                                                                       .bold),
+                                                          // textAlign: TextAlign.center,
                                                         ),
                                                         Container(
                                                           padding: EdgeInsets
@@ -208,6 +216,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                               color:
                                                                   Colors.grey,
                                                             ),
+                                                            //  textAlign: TextAlign.center,
                                                           ),
                                                         ),
                                                         Container(
@@ -221,11 +230,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                     genres: _movieList[
                                                                             index]
                                                                         .genres),
+                                                            overflow:
+                                                                TextOverflow
+                                                                    .ellipsis,
                                                             style: TextStyle(
                                                               fontSize: 12,
                                                               color:
                                                                   Colors.grey,
                                                             ),
+                                                            // textAlign: TextAlign.center,
                                                           ),
                                                         ),
                                                         Container(
@@ -243,6 +256,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                               color:
                                                                   Colors.black,
                                                             ),
+                                                            // textAlign: TextAlign.center,
                                                           ),
                                                         ),
                                                       ],
@@ -281,6 +295,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                   .checkInternet()
                                   .then((internet) {
                                 print(internet);
+
+                                //   if (internet == true) {
 
                                 setState(() {
                                   isInternet = internet;

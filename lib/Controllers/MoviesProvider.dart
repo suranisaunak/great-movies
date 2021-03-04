@@ -23,6 +23,58 @@ class MovieProvider with ChangeNotifier {
     });
   }
 
+  // use this function if need single movie to perform operation on movie details
+
+  /*  Future movieSingle({@required int id}) async {
+    getSingleMovieData(id: id).then((movie) {
+      setisListLoadingFalse();
+      notifyListeners();
+    }).catchError((e) {
+      setisListLoadingFalse();
+      isMovieListError = true;
+      print(e);
+      notifyListeners();
+    });
+  }
+
+  MovieModel _movie;
+
+  getMovie() => _movie;
+
+  bool isLoading;
+
+  getisLoading() => isLoading;
+
+  bool isError;
+
+  getisError() => isError;
+
+  setisLoadingFalse() => isLoading = false;
+
+  Future<MovieModel> getSingleMovieData({@required int id}) async {
+  
+    isLoading = true;
+
+    var response = await http.get(Uri.parse("$getSingleMovies/$id"), headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    }).catchError((onError) {
+      isLoading = false;
+      notifyListeners();
+    });
+    if (response.statusCode == 200) {
+      var data = json.decode(response.body);
+
+
+      _movie = MovieModel.fromJson(data['data']['movie']);
+      notifyListeners();
+      return _movie;
+    } else {
+      return _movie;
+    }
+  }
+ */
+
 // fetch movie list
   List<MovieModel> _movieList = [];
 
@@ -73,8 +125,13 @@ class MovieProvider with ChangeNotifier {
     String genreString = "";
     if (genres.length != 0) {
       for (var item in genres) {
-        genreString = "${item + ' / ' + item}";
+        if (genreString == "") {
+          genreString = item;
+        } else {
+          genreString = "${genreString + ' / ' + item}";
+        }
       }
+      // genreString.replaceFirst(" / ", "");
     }
     return genreString;
   }

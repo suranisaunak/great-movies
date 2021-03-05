@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class SizeConfig {
   static MediaQueryData _mediaQueryData;
@@ -18,4 +19,11 @@ class SizeConfig {
         ? screenHeight * 0.024
         : screenWidth * 0.024;
   }
+}
+
+enum DeviceType { Phone, Tablet }
+
+DeviceType getDeviceType() {
+  final data = MediaQueryData.fromWindow(WidgetsBinding.instance.window);
+  return data.size.shortestSide < 550 ? DeviceType.Phone : DeviceType.Tablet;
 }

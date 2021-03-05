@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 void main() {
   runApp(new MyApp());
 
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 }
 
 class MyApp extends StatefulWidget {

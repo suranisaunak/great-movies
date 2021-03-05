@@ -116,6 +116,9 @@ class MovieProvider with ChangeNotifier {
       notifyListeners();
       return _movieList;
     } else {
+      setisListLoadingFalse();
+      isMovieListError = true;
+      notifyListeners();
       return _movieList;
     }
   }
